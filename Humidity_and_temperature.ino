@@ -1,14 +1,16 @@
+#include "ThingSpeak.h"
 #include <WiFiNINA.h>
-#include <ThingSpeak.h>
-#include <DHT.h>
+#include "secrets.h"
+#include "DHT.h"
 
-const char *ssid = "Optus_508297";
-const char *password = "heezegytes22umL";
-const char *server = "api.thingspeak.com";
+char ssid[] = SECRET_SSID;
+char pass[] = SECRET_PASS;
+int status = WL_IDLE_STATUS;
+
 WiFiClient client;
 
-unsigned long myChannelNumber = 2936793;
-const char *myWriteAPIKey = "RM4NH65UDV0BCAVV";
+unsigned long myChannelNumber = SECRET_CH_ID;
+const char * myWriteAPIKey = SECRET_WRITE_APIKEY;
 
 DHT dht(2, DHT22);  // DHT11 sensor on pin 2
 
